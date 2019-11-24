@@ -1,0 +1,561 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<title>Apache JMeter
+          -
+          User's Manual: Auto-Correlation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:400normal" rel="stylesheet" type="text/css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../css/new-style.css">
+<link rel="apple-touch-icon-precomposed" href="../images/apple-touch-icon.png">
+<link rel="icon" href="../images/favicon.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="../images/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body role="document">
+<a href="#content" class="hidden">Main content</a>
+<div class="header">
+<!--
+            APACHE LOGO
+          -->
+<div>
+<a href="https://www.apache.org"><img title="Apache Software Foundation" class="asf-logo logo" src="../images/asf-logo.svg" alt="Logo ASF"></a>
+</div>
+<!--
+              PROJECT LOGO
+            -->
+<div>
+<a href="https://jmeter.apache.org/"><img class="logo" src="../images/logo.svg" alt="Apache JMeter"></a>
+</div>
+<div class="banner">
+<a href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="Current Apache event teaser"></a>
+<div class="clear"></div>
+</div>
+</div>
+<div class="nav">
+<ul class="menu">
+<li onClick="return true">
+<div class="menu-title">About</div>
+<ul>
+<li>
+<a href="../index.html">Overview</a>
+</li>
+<li>
+<a href="https://www.apache.org/licenses/">License</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="menu">
+<li onClick="return true">
+<div class="menu-title">Download</div>
+<ul>
+<li>
+<a href="../download_jmeter.cgi">Download Releases</a>
+</li>
+<li>
+<a href="../changes.html">Release Notes</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="menu">
+<li onClick="return true">
+<div class="menu-title">Documentation</div>
+<ul>
+<li>
+<a href="../usermanual/get-started.html">Get Started</a>
+</li>
+<li>
+<a href="../usermanual/index.html">User Manual</a>
+</li>
+<li>
+<a href="../usermanual/best-practices.html">Best Practices</a>
+</li>
+<li>
+<a href="../usermanual/component_reference.html">Component Reference</a>
+</li>
+<li>
+<a href="../usermanual/functions.html">Functions Reference</a>
+</li>
+<li>
+<a href="../usermanual/properties_reference.html">Properties Reference</a>
+</li>
+<li>
+<a href="../changes_history.html">Change History</a>
+</li>
+<li>
+<a href="../api/index.html">Javadocs</a>
+</li>
+<li>
+<a href="https://cwiki.apache.org/confluence/display/JMETER/Home">JMeter Wiki</a>
+</li>
+<li>
+<a href="https://cwiki.apache.org/confluence/display/JMETER/JMeterFAQ">FAQ (Wiki)</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="menu">
+<li onClick="return true">
+<div class="menu-title">Tutorials</div>
+<ul>
+<li>
+<a href="../usermanual/jmeter_distributed_testing_step_by_step.html">Distributed Testing</a>
+</li>
+<li>
+<a href="../usermanual/jmeter_proxy_step_by_step.html">Recording Tests</a>
+</li>
+<li>
+<a href="../usermanual/junitsampler_tutorial.html">JUnit Sampler</a>
+</li>
+<li>
+<a href="../usermanual/jmeter_accesslog_sampler_step_by_step.html">Access Log Sampler</a>
+</li>
+<li>
+<a href="../usermanual/jmeter_tutorial.html">Extending JMeter</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="menu">
+<li onClick="return true">
+<div class="menu-title">Community</div>
+<ul>
+<li>
+<a href="../issues.html">Issue Tracking</a>
+</li>
+<li>
+<a href="https://www.apache.org/security/">Security</a>
+</li>
+<li>
+<a href="../mail.html">Mailing Lists</a>
+</li>
+<li>
+<a href="../svnindex.html">Source Repositories</a>
+</li>
+<li>
+<a href="../building.html">Building and Contributing</a>
+</li>
+<li>
+<a href="https://projects.apache.org/project.html?jmeter">Project info at Apache</a>
+</li>
+<li>
+<a href="https://cwiki.apache.org/confluence/display/JMETER/JMeterCommitters">Contributors</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="menu">
+<li onClick="return true">
+<div class="menu-title">Foundation</div>
+<ul>
+<li>
+<a href="https://www.apache.org/">The Apache Software Foundation (ASF)</a>
+</li>
+<li>
+<a href="https://www.apache.org/foundation/getinvolved.html">Get Involved in the ASF</a>
+</li>
+<li>
+<a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+</li>
+<li>
+<a href="https://www.apache.org/foundation/thanks.html">Thanks</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="main" id="content">
+<div class="social-media">
+<ul class="social-media-links">
+<li class="twitter">
+<a href="https://twitter.com/ApacheJMeter" title="Follow us on Twitter"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
+</li>
+<li class="github">
+<a href="https://github.com/apache/jmeter" title="Fork us on github"><i class="fa fa-github" aria-hidden="true"></i>github</a>
+</li>
+</ul>
+</div>
+<ul class="pagelinks">
+<li>
+<a href="curl.html">&lt; Prev</a>
+</li>
+<li>
+<a href="../index.html">Index</a>
+</li>
+<li>
+<a href="history_future.html">Next &gt;</a>
+</li>
+</ul>
+<div class="section">
+<h1 id="auto_correlation">25. Auto-Correlation<a class="sectionlink" href="#auto_correlation" title="Link to here">&para;</a>
+</h1>
+
+<p>Auto-Correlation feature detects the dynamic parameters and adds response data extractors for them.<br>
+A Test Plan using HTTP(S) requests can be correlated using this functionality.
+</p>
+
+
+<div class="subsection">
+<h2 id="how_to_correlation">25.1 How to perform Auto-Correlation<a class="sectionlink" href="#how_to_correlation" title="Link to here">&para;</a>
+</h2>
+
+<p>
+There are two ways to perform Auto-Correlation.<br>
+
+<ul>
+
+<li>
+<a href="#jmx_file">JMX File</a>
+</li>
+
+<li>
+<a href="#import_rule">Import Rule</a>
+</li>
+
+</ul>
+
+<p id="important_note">
+<div class="clear"></div>
+<div class="note"> Test Plan must be recorded using the documentation shared 
+<a href="jmeter_proxy_step_by_step.html">here</a>.
+</div>
+<div class="clear"></div>
+
+</p>
+
+</p>
+
+<div class="subsection">
+<h2 id="jmx_file">25.1.1 JMX File<a class="sectionlink" href="#jmx_file" title="Link to here">&para;</a>
+</h2>
+
+<p>
+Using a JMX Test Plan.
+</p>
+
+<p>
+<b>Steps</b>
+</p>
+
+1.Record a Test Plan for a testing scenario. Save it (say TestPlan_recording_one.jmx).<br>
+2.Record another Test Plan with the same scenario.
+<b><a href="#important_note">(Important)</a></b>
+<br>
+3.Click on <span class="menuchoice"><span class="guimenuitem">Tools</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">Correlation</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">JMX File</span></span>.<br>
+
+<figure>
+<a href="../images/screenshots/correlation/correlation_jmx_file.png"><img src="../images/screenshots/correlation/correlation_jmx_file.png" width="751" height="292" alt="
+Figure 1 - The menu where correlation via JMX file is located"></a>
+<figcaption>
+Figure 1 - The menu where correlation via JMX file is located</figcaption>
+</figure>
+<br>
+A browse file menu will open.
+<figure>
+<a href="../images/screenshots/correlation/correlation_jmx_file_browse.png"><img src="../images/screenshots/correlation/correlation_jmx_file_browse.png" width="945" height="442" alt="
+Figure 2 - The browse menu for JMX file"></a>
+<figcaption>
+Figure 2 - The browse menu for JMX file</figcaption>
+</figure>
+4.Browse for the Test Plan saved in Step 1 (TestPlan_recording_one.jmx)<br>
+5.Click on <span class="code">Correlation.</span>
+<br>
+A list of dynamic (correlatable) parameters will be displayed in the table.<br>
+For more details on the parameter naming convention refer <a href="#naming_convention">here</a>.
+<br>
+
+<figure>
+<a href="../images/screenshots/correlation/correlation_jmx_file_parameters.png"><img src="../images/screenshots/correlation/correlation_jmx_file_parameters.png" width="968" height="362" alt="
+Figure 3 - The list of parameters which can be correlated"></a>
+<figcaption>
+Figure 3 - The list of parameters which can be correlated</figcaption>
+</figure>
+6.Select the parameters you want to correlate and Click <span class="code">OK</span>.<br>
+If successful, the following dialog box will be displayed and extractors 
+will be added in the script.
+<figure>
+<a href="../images/screenshots/correlation/correlation_jmx_file_success.png"><img src="../images/screenshots/correlation/correlation_jmx_file_success.png" width="812" height="366" alt="
+Figure 4 - Successful Correlation"></a>
+<figcaption>
+Figure 4 - Successful Correlation</figcaption>
+</figure>
+
+<p id="dialog">
+
+<figure>
+<a href="../images/screenshots/correlation/correlation_jmx_file_success_failure.png"><img src="../images/screenshots/correlation/correlation_jmx_file_success_failure.png" width="979" height="280" alt="
+Figure 5 - Failure and Partial failure dialog boxes"></a>
+<figcaption>
+Figure 5 - Failure and Partial failure dialog boxes</figcaption>
+</figure>
+
+</p>
+
+</div>
+
+
+<div class="subsection">
+<h2 id="import_rule">25.1.2 Import/Export Rule<a class="sectionlink" href="#import_rule" title="Link to here">&para;</a>
+</h2>
+
+<p>Before correlating a Test Plan using Import/Export rule functionality, 
+you need to export the rule from an existing correlated Test Plan.</p>
+
+<h2 class="ch_section" id="Export Rule">Export Rule</h2>
+
+<p>
+It allows you to export the response extractors in your Test Plan in a rule file.
+</p>
+
+<p>
+<b>Steps</b>
+</p>
+
+<ol>
+
+<li>Create/Open a Test Plan which has correlated parameters in it.</li>
+
+<li>Click on <span class="menuchoice"><span class="guimenuitem">Tools</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">Correlation</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">Export Rule</span></span>.<br>
+A list of extractors for which the rules can be created will be displayed.
+</li>
+
+<li>Select the extractors for which you want to create rule and Click <span class="code">Export</span>.
+</li>
+
+<figure>
+<a href="../images/screenshots/correlation/correlation_export_rule_1.png"><img src="../images/screenshots/correlation/correlation_export_rule_1.png" width="612" height="349" alt="
+Figure 6 - Export rule extractor list"></a>
+<figcaption>
+Figure 6 - Export rule extractor list</figcaption>
+</figure>
+
+<li>Browse for the directory where you want to save the rule file and Click <span class="code">Save</span>.<br>
+
+<figure>
+<a href="../images/screenshots/correlation/correlation_export_rule_2.png"><img src="../images/screenshots/correlation/correlation_export_rule_2.png" width="594" height="406" alt="
+Figure 7 - Save Rule File"></a>
+<figcaption>
+Figure 7 - Save Rule File</figcaption>
+</figure>
+A popup will be displayed for successful/failed rule export.
+<figure>
+<a href="../images/screenshots/correlation/correlation_export_rule_3.png"><img src="../images/screenshots/correlation/correlation_export_rule_3.png" width="977" height="280" alt="
+Figure 8 - Success/Failure dialog boxes"></a>
+<figcaption>
+Figure 8 - Success/Failure dialog boxes</figcaption>
+</figure>
+
+</li>
+
+</ol>
+
+<h2 class="ch_section" id="Import Rule">Import Rule</h2>
+
+<p>
+After you have created the rule file, a Test Plan can be correlated using that rule file.<br>
+Details about the rule file format can be referred <a href="#rule_file_format">here</a>.
+</p>
+
+<p>
+<b>Steps</b>
+</p>
+
+<ol>
+
+<li>Record a Test Plan.<b><a href="#important_note">(Important)</a></b>
+</li>
+
+<li>Click on <span class="menuchoice"><span class="guimenuitem">Tools</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">Correlation</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">Import Rule</span></span>.<br>
+A list of parameters which can be correlated based on the rule will be displayed.
+</li>
+
+<figure>
+<a href="../images/screenshots/correlation/correlation_import_rule_1.png"><img src="../images/screenshots/correlation/correlation_import_rule_1.png" width="605" height="430" alt="
+Figure 9 - Import Rule parameter list"></a>
+<figcaption>
+Figure 9 - Import Rule parameter list</figcaption>
+</figure>
+
+<li>Select the parameters you want to correlate and Click <span class="code">OK</span>.<br>
+A <a href="#dialog">popup</a> will be displayed for successful/failed correlation.
+</li>
+
+</ol>
+
+</div>
+
+
+</div>
+
+
+<div class="subsection">
+<h2 id="avoid_mistakes">25.2 Mistakes to avoid and Best practices<a class="sectionlink" href="#avoid_mistakes" title="Link to here">&para;</a>
+</h2>
+
+<h2 class="ch_section" id="Mistakes to avoid">Mistakes to avoid</h2>
+
+<ul>
+
+<li>Correlate an empty test plan or a test plan with no HTTP Requests.<br>
+Example: Create a new test plan and try to correlate it using either JMX File or rule file.<br>
+Error: Current GUI TestPlan doesn't have any HTTP(S) Requests. Please record a plan and try again.
+</li>
+
+<li>Correlate a test plan which is not a recorded plan.<br>
+Example: Open an existing test plan and try to correlate it using either JMX file or rule file.<br>
+Error: No Response data found. Make sure you have recorded the script and not opened it.
+</li>
+
+<li>Correlate using an empty/invalid JMX file.<br>
+Example: Record a test plan and try to correlate it using an empty JMX test plan.<br>
+Error: Could not load the JMX file. Please check the file and try again.
+</li>
+
+<li>Correlate using a JMX file with no HTTP requests.<br>
+Example: Record a test plan and try to correlate it using a JMX test plan with no HTTP Requests.<br>
+Error: Imported JMX file doesn't have any HTTP(S) Requests. Please check the file and try again.
+</li>
+
+<li>Correlate while recording is still running.<br>
+This must be avoided in order to avoid any crashes.
+</li>
+
+</ul>
+
+<h2 class="ch_section" id="Best practices">Best practices</h2>
+
+<ul>
+
+<li>Only select the parameters which you thing should be correlated.<br>
+Dynamic parameters' list include parameters which should not be correlated for example username, password, date, etc...<br>
+Hence, select the parameters from the list who you think should be correlated for example authToken, csrf token, etc...
+</li>
+
+</ul>
+
+</div>
+
+<div class="subsection">
+<h2 id="naming_convention">25.3 Correlatable parameter Naming Convention<a class="sectionlink" href="#naming_convention" title="Link to here">&para;</a>
+</h2>
+
+<p>
+Correlatable parameters are named as follows
+</p>
+
+<ul>
+
+<li>Parameter in request header (Authorisation)<br>
+Correlatable Parameter Name = "<span class="code">Authorisation</span>"</li>
+
+<li>Parameter in request body or query string<br>
+Correlatable Parameter Name = <span class="code">Actual Parameter Name</span>
+<br>
+If parameter occurs twice or more then correlatable parameter name is appended by
+"(parameter count)"<br>
+Example: <span class="code">authenticity_token, authenticity_token(1)</span>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="subsection">
+<h2 id="rule_file_format">25.4 Rule file format<a class="sectionlink" href="#rule_file_format" title="Link to here">&para;</a>
+</h2>
+
+<p>
+The export rules will create a JSON rule file in the following format.
+</p>
+
+<figure>
+<a href="../images/screenshots/correlation/correlation_rule_file_format.png"><img src="../images/screenshots/correlation/correlation_rule_file_format.png" width="715" height="396" alt="
+Figure 10 - Rule file example"></a>
+<figcaption>
+Figure 10 - Rule file example</figcaption>
+</figure>
+
+</div>
+
+<div class="subsection">
+<h2 id="limitations">25.5 Limitations<a class="sectionlink" href="#limitations" title="Link to here">&para;</a>
+</h2>
+
+<ul>
+
+<li>If the auto-correlation is done once then it cannot be undone,
+you need to record the plan again to correlate the script.</li>
+
+</ul>
+
+</div>
+
+</div>
+<ul class="pagelinks">
+<li>
+<a href="curl.html">&lt; Prev</a>
+</li>
+<li>
+<a href="../index.html">Index</a>
+</li>
+<li>
+<a href="history_future.html">Next &gt;</a>
+</li>
+</ul>
+<div class="share-links">
+      Share this page:
+      <ul>
+<li class="fb">
+<a data-social-url="https://facebook.com/sharer/sharer.php?u=" title="Share on facebook"><i class="fa fa-facebook" aria-hidden="true"></i>share</a>
+</li>
+<li class="twitter">
+<a data-social-url="https://twitter.com/intent/tweet?url=" title="Tweet on twitter"><i class="fa fa-twitter" aria-hidden="true"></i>tweet</a>
+</li>
+</ul>
+</div>
+<a href="#top" id="topButton">Go to top</a>
+</div>
+<div class="footer">
+<div class="copyright">
+            Copyright &copy;
+            1999 &ndash;
+            2019
+            , Apache Software Foundation
+          </div>
+<div class="trademarks">Apache, Apache JMeter, JMeter, the Apache
+            feather, and the Apache JMeter logo are
+            trademarks of the
+            Apache Software Foundation.
+          </div>
+</div>
+<script>(function(){
+            "use strict";
+            // enable 'go to top' button functionality
+            document.addEventListener('scroll', function() {
+                if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                    document.getElementById("topButton").style.display = "block";
+                } else {
+                    document.getElementById("topButton").style.display = "none";
+                }
+            });
+            // fill in the current location into social links on this page.
+            var as = document.getElementsByTagName('a');
+            var loc = document.location.href;
+            if (!loc.toLowerCase().startsWith('http')) {
+                return;
+            }
+            for (var i=0; i<as.length; i++) {
+                var href = as[i].getAttribute('data-social-url');
+                if (href !== null) {
+                    as[i].href = href + encodeURIComponent(loc);
+                }
+            }
+        })();</script>
+</body>
+</html>
