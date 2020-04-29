@@ -28,6 +28,7 @@ org.apache.jmeter.gui.action.template
 org.apache.jmeter.gui.action.thinktime
 org.apache.jmeter.gui.action.validation
 org.apache.jmeter.gui.logging
+org.apache.jmeter.gui.menu
 org.apache.jmeter.gui.plugin
 org.apache.jmeter.gui.tree
 org.apache.jmeter.gui.util
@@ -46,6 +47,9 @@ org.apache.jmeter.protocol.http.config
 org.apache.jmeter.protocol.http.config.gui
 org.apache.jmeter.protocol.http.control
 org.apache.jmeter.protocol.http.control.gui
+org.apache.jmeter.protocol.http.correlation
+org.apache.jmeter.protocol.http.correlation.extractordata
+org.apache.jmeter.protocol.http.correlation.rule
 org.apache.jmeter.protocol.http.curl
 org.apache.jmeter.protocol.http.gui
 org.apache.jmeter.protocol.http.gui.action
@@ -131,6 +135,7 @@ org.apache.jorphan.documentation
 org.apache.jorphan.exec
 org.apache.jorphan.gui
 org.apache.jorphan.gui.layout
+org.apache.jorphan.gui.ui
 org.apache.jorphan.io
 org.apache.jorphan.logging
 org.apache.jorphan.math

@@ -197,7 +197,7 @@
 <h1 id="realtime-results">15. Real-time results<a class="sectionlink" href="#realtime-results" title="Link to here">&para;</a>
 </h1>
 
-<p>Since JMeter 2.13 you can get real-time results sent to a backend through the 
+<p>Since JMeter 2.13 you can get real-time results sent to a backend through the
 <a href="component_reference.html#Backend_Listener">Backend Listener</a> using potentially any backend (JDBC, JMS, Webservice, &hellip;)
 by providing a class which implements <a href="../api/org/apache/jmeter/visualizers/backend/AbstractBackendListenerClient.html">AbstractBackendListenerClient</a>.<br>
 JMeter ships with:
@@ -419,14 +419,14 @@ In this document we will present the configuration setup to graph and historize 
 </dl>
     
 <p>
-    The default <span class="code">percentiles</span> setting on the <a href="../usermanual/component_reference.html#Backend_Listener">Backend Listener</a> is "90;95;99", 
+    The default <span class="code">percentiles</span> setting on the <a href="../usermanual/component_reference.html#Backend_Listener">Backend Listener</a> is "90;95;99",
     i.e. the 3 percentiles 90%, 95% and 99%.
     </p>
     
 <p>
     The <a href="http://graphite.readthedocs.io/en/latest/feeding-carbon.html#step-1-plan-a-naming-hierarchy">Graphite naming hierarchy</a>
     uses dot (".") to separate elements. This could be confused with decimal percentile values.
-    JMeter converts any such values, replacing dot (".") with underscore ("-"). 
+    JMeter converts any such values, replacing dot (".") with underscore ("-").
     For example, "<span class="code">99.9</span>" becomes "<span class="code">99_9</span>"
     </p>
     
@@ -475,7 +475,7 @@ In this document we will present the configuration setup to graph and historize 
 <h2 id="influxdb">15.3.1 InfluxDB setup for InfluxDBBackendListenerClient<a class="sectionlink" href="#influxdb" title="Link to here">&para;</a>
 </h2>
 
-<p>InfluxDB is an open-source, distributed, time-series database that allows to 
+<p>InfluxDB is an open-source, distributed, time-series database that allows to
 easily store metrics.
 Installation and configuration is very easy, read this for more details <a href="https://docs.influxdata.com/influxdb/latest/introduction/installation/" target="_blank">InfluxDB documentation</a>.<br>
 InfluxDB data can be easily viewed in a browser through <a href="http://grafana.org/" target="_blank">Grafana</a>.
@@ -484,7 +484,7 @@ InfluxDB data can be easily viewed in a browser through <a href="http://grafana.
 </div>
 
 </div>
-    
+
 
 <div class="subsection">
 <h2 id="grafana_configuration">15.4 Grafana configuration<a class="sectionlink" href="#grafana_configuration" title="Link to here">&para;</a>
@@ -501,7 +501,7 @@ InfluxDB data can be easily viewed in a browser through <a href="http://grafana.
     <figure>
 <a href="../images/screenshots/grafana_dashboard.png"><img src="../images/screenshots/grafana_dashboard.png" width="1265" height="581" alt="Grafana dashboard"></a>
 <figcaption>Grafana dashboard</figcaption>
-</figure> 
+</figure>
 
 </div>
 

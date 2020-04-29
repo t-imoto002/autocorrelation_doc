@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9,"i5":10,"i6":10,"i7":9,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":10,"i8":9,"i9":9,"i10":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -143,6 +143,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/table/Abs
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/gui/CorrelationTableModel.html#columnNames">columnNames</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[][]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/gui/CorrelationTableModel.html#rowData">rowData</a></span></code>&nbsp;</td>
 </tr>
@@ -198,28 +202,36 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/table/Abs
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/gui/CorrelationTableModel.html#getColumnName-int-">getColumnName</a></span>(int&nbsp;column)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/gui/CorrelationTableModel.html#getColumnNames--">getColumnNames</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/gui/CorrelationTableModel.html#getRowCount--">getRowCount</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[][]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/gui/CorrelationTableModel.html#getRowData--">getRowData</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/gui/CorrelationTableModel.html#getValueAt-int-int-">getValueAt</a></span>(int&nbsp;row,
           int&nbsp;column)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/gui/CorrelationTableModel.html#isCellEditable-int-int-">isCellEditable</a></span>(int&nbsp;row,
               int&nbsp;column)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/gui/CorrelationTableModel.html#setColumnNames-java.lang.String...-">setColumnNames</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>...&nbsp;columnNames)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/gui/CorrelationTableModel.html#setRowData-java.lang.Object:A:A-">setRowData</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[][]&nbsp;rowData)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/gui/CorrelationTableModel.html#setValueAt-java.lang.Object-int-int-">setValueAt</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value,
           int&nbsp;row,
@@ -257,10 +269,19 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/table/Abs
 <a name="rowData">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>rowData</h4>
 <pre>protected static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[][] rowData</pre>
+</li>
+</ul>
+<a name="columnNames">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>columnNames</h4>
+<pre>protected static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[] columnNames</pre>
 </li>
 </ul>
 </li>
@@ -304,6 +325,24 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/table/Abs
 <li class="blockList">
 <h4>setRowData</h4>
 <pre>public static&nbsp;void&nbsp;setRowData(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[][]&nbsp;rowData)</pre>
+</li>
+</ul>
+<a name="getColumnNames--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getColumnNames</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;getColumnNames()</pre>
+</li>
+</ul>
+<a name="setColumnNames-java.lang.String...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setColumnNames</h4>
+<pre>public static&nbsp;void&nbsp;setColumnNames(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>...&nbsp;columnNames)</pre>
 </li>
 </ul>
 <a name="getColumnCount--">

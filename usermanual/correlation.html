@@ -219,12 +219,57 @@ There are two ways to perform Auto-Correlation.<br>
 
 </ul>
 
-<p id="important_note">
+<p>
+
 <div class="clear"></div>
-<div class="note"> Test Plan must be recorded using the documentation shared 
-<a href="jmeter_proxy_step_by_step.html">here</a>.
-</div>
+<div class="note">Auto-Correlation requires recording Test Plan with <span class="code">Auto-Correlation Recording Template</span>.</div>
 <div class="clear"></div>
+
+<p>
+<span class="code">Auto-Correlation Recording Template</span> is a modified version of <span class="code">Recording Template</span> which
+uses <span class="code"><a href="component_reference.html#Correlation_Response_Recorder">Correlation Response Recorder</a></span> instead of <span class="code">View Results Tree</span> to record response data.</p>
+
+<p>
+<b>Steps to record a Test Plan</b>
+</p>
+
+<ol>
+  
+<li>Go to <span class="code">JMETER_HOME/bin</span> and start JMeter with <span class="code">jmeter.bat</span> on Windows
+      and <span class="code">jmeter.sh
+      </span> on Linux/Unix.</li>
+  
+<li>Select <span class="menuchoice"><span class="guimenuitem">File</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">Templates...</span></span> on the menu bar.</li>
+  
+<figure>
+<a href="../images/screenshots/correlation/correlation_how_to_1.png"><img src="../images/screenshots/correlation/correlation_how_to_1.png" width="" height="" alt=""></a>
+<figcaption></figcaption>
+</figure>
+  
+<li>Select <span class="code">Auto-Correlation Recording Template</span> on the list and click <span class="code">Create</span> button.</li>
+  
+<figure>
+<a href="../images/screenshots/correlation/correlation_how_to_2.png"><img src="../images/screenshots/correlation/correlation_how_to_2.png" width="" height="" alt=""></a>
+<figcaption></figcaption>
+</figure>
+  Fill the parameters and click <span class="code">Create</span> button.
+  <figure>
+<a href="../images/screenshots/correlation/correlation_how_to_2b.png"><img src="../images/screenshots/correlation/correlation_how_to_2b.png" width="" height="" alt=""></a>
+<figcaption></figcaption>
+</figure>
+  
+<li>A complete <span class="code">Test Plan</span> is generated</li>
+  
+<figure>
+<a href="../images/screenshots/correlation/correlation_how_to_3.png"><img src="../images/screenshots/correlation/correlation_how_to_3.png" width="" height="" alt=""></a>
+<figcaption></figcaption>
+</figure>
+
+</ol>
+
+<p>
+Please follow the Recording documentation <a href="jmeter_proxy_step_by_step.html#basic-instructions">here</a> from Step 5 onwards.
+</p>
 
 </p>
 
@@ -235,18 +280,17 @@ There are two ways to perform Auto-Correlation.<br>
 </h2>
 
 <p>
-Using a JMX Test Plan.
+Auto-Correlation using a JMX Test Plan.
 </p>
 
 <p>
 <b>Steps</b>
 </p>
 
-1.Record a Test Plan for a testing scenario. Save it (say TestPlan_recording_one.jmx).<br>
-2.Record another Test Plan with the same scenario.
-<b><a href="#important_note">(Important)</a></b>
-<br>
-3.Click on <span class="menuchoice"><span class="guimenuitem">Tools</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">Correlation</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">JMX File</span></span>.<br>
+1. Record a Test Plan for a testing scenario using the steps mentioned <a href="#how_to_correlation">here</a>
+and save it (say TestPlan_recording_one.jmx).<br>
+2. Record another Test Plan with the same scenario. It is not required to save this test plan.<br>
+3. Click on <span class="menuchoice"><span class="guimenuitem">Tools</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">Correlation</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">JMX File</span></span>.<br>
 
 <figure>
 <a href="../images/screenshots/correlation/correlation_jmx_file.png"><img src="../images/screenshots/correlation/correlation_jmx_file.png" width="751" height="292" alt="
@@ -255,17 +299,17 @@ Figure 1 - The menu where correlation via JMX file is located"></a>
 Figure 1 - The menu where correlation via JMX file is located</figcaption>
 </figure>
 <br>
-A browse file menu will open.
+A file browse menu will open.
 <figure>
 <a href="../images/screenshots/correlation/correlation_jmx_file_browse.png"><img src="../images/screenshots/correlation/correlation_jmx_file_browse.png" width="945" height="442" alt="
 Figure 2 - The browse menu for JMX file"></a>
 <figcaption>
 Figure 2 - The browse menu for JMX file</figcaption>
 </figure>
-4.Browse for the Test Plan saved in Step 1 (TestPlan_recording_one.jmx)<br>
-5.Click on <span class="code">Correlation.</span>
+4. Browse for the Test Plan saved in Step 1 (TestPlan_recording_one.jmx)<br>
+5. Click on <span class="code">Correlation</span> button.<br>
 <br>
-A list of dynamic (correlatable) parameters will be displayed in the table.<br>
+A list of dynamic parameters for correlation will be displayed in the table.<br>
 For more details on the parameter naming convention refer <a href="#naming_convention">here</a>.
 <br>
 
@@ -275,8 +319,8 @@ Figure 3 - The list of parameters which can be correlated"></a>
 <figcaption>
 Figure 3 - The list of parameters which can be correlated</figcaption>
 </figure>
-6.Select the parameters you want to correlate and Click <span class="code">OK</span>.<br>
-If successful, the following dialog box will be displayed and extractors 
+6. Select (click check-box) the parameters you want to correlate and Click <span class="code">OK</span> button.<br>
+If successful, the following dialog box will be displayed and extractors
 will be added in the script.
 <figure>
 <a href="../images/screenshots/correlation/correlation_jmx_file_success.png"><img src="../images/screenshots/correlation/correlation_jmx_file_success.png" width="812" height="366" alt="
@@ -284,8 +328,8 @@ Figure 4 - Successful Correlation"></a>
 <figcaption>
 Figure 4 - Successful Correlation</figcaption>
 </figure>
-
-<p id="dialog">
+If unsuccessful or partially successful, one of the following errors will be displayed.
+<p>
 
 <figure>
 <a href="../images/screenshots/correlation/correlation_jmx_file_success_failure.png"><img src="../images/screenshots/correlation/correlation_jmx_file_success_failure.png" width="979" height="280" alt="
@@ -295,7 +339,7 @@ Figure 5 - Failure and Partial failure dialog boxes</figcaption>
 </figure>
 
 </p>
-
+If successful, you may try out the test plan.
 </div>
 
 
@@ -303,13 +347,13 @@ Figure 5 - Failure and Partial failure dialog boxes</figcaption>
 <h2 id="import_rule">25.1.2 Import/Export Rule<a class="sectionlink" href="#import_rule" title="Link to here">&para;</a>
 </h2>
 
-<p>Before correlating a Test Plan using Import/Export rule functionality, 
+<p>Before correlating a Test Plan using Import/Export rule functionality,
 you need to export the rule from an existing correlated Test Plan.</p>
 
 <h2 class="ch_section" id="Export Rule">Export Rule</h2>
 
 <p>
-It allows you to export the response extractors in your Test Plan in a rule file.
+It allows you to export the response extractors in your Test Plan into a rule file.
 </p>
 
 <p>
@@ -324,7 +368,7 @@ It allows you to export the response extractors in your Test Plan in a rule file
 A list of extractors for which the rules can be created will be displayed.
 </li>
 
-<li>Select the extractors for which you want to create rule and Click <span class="code">Export</span>.
+<li>Select the extractors for which you want to create rule and Click <span class="code">Export</span> button.
 </li>
 
 <figure>
@@ -334,7 +378,7 @@ Figure 6 - Export rule extractor list"></a>
 Figure 6 - Export rule extractor list</figcaption>
 </figure>
 
-<li>Browse for the directory where you want to save the rule file and Click <span class="code">Save</span>.<br>
+<li>Browse for the directory where you want to save the rule file and Click <span class="code">Save</span> button.<br>
 
 <figure>
 <a href="../images/screenshots/correlation/correlation_export_rule_2.png"><img src="../images/screenshots/correlation/correlation_export_rule_2.png" width="594" height="406" alt="
@@ -367,8 +411,7 @@ Details about the rule file format can be referred <a href="#rule_file_format">h
 
 <ol>
 
-<li>Record a Test Plan.<b><a href="#important_note">(Important)</a></b>
-</li>
+<li>Record a Test Plan using the steps mentioned <a href="#how_to_correlation">here</a>.</li>
 
 <li>Click on <span class="menuchoice"><span class="guimenuitem">Tools</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">Correlation</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">Import Rule</span></span>.<br>
 A list of parameters which can be correlated based on the rule will be displayed.
@@ -381,8 +424,10 @@ Figure 9 - Import Rule parameter list"></a>
 Figure 9 - Import Rule parameter list</figcaption>
 </figure>
 
-<li>Select the parameters you want to correlate and Click <span class="code">OK</span>.<br>
-A <a href="#dialog">popup</a> will be displayed for successful/failed correlation.
+<li>Select the parameters you want to correlate and Click <span class="code">OK</span> button.<br>
+<br>
+Popups will be displayed for successful/failed correlation similar to the ones in correlation via JMX file.<br>
+If successful, you may try out the test plan.
 </li>
 
 </ol>
@@ -420,6 +465,11 @@ Error: Could not load the JMX file. Please check the file and try again.
 Example: Record a test plan and try to correlate it using a JMX test plan with no HTTP Requests.<br>
 Error: Imported JMX file doesn't have any HTTP(S) Requests. Please check the file and try again.
 </li>
+
+<li>Rule file should not be created manually, and if you are creating manually then user should follow <a href="#rule_file_format">rule file format</a>
+</li>
+
+<li>User should not try to perform correlation multiple times on extracted parameters.</li>
 
 <li>Correlate while recording is still running.<br>
 This must be avoided in order to avoid any crashes.
@@ -470,16 +520,172 @@ Example: <span class="code">authenticity_token, authenticity_token(1)</span>
 <h2 id="rule_file_format">25.4 Rule file format<a class="sectionlink" href="#rule_file_format" title="Link to here">&para;</a>
 </h2>
 
-<p>
-The export rules will create a JSON rule file in the following format.
-</p>
+<p>List of rule file Extractors and their attributes </p>
 
-<figure>
-<a href="../images/screenshots/correlation/correlation_rule_file_format.png"><img src="../images/screenshots/correlation/correlation_rule_file_format.png" width="715" height="396" alt="
-Figure 10 - Rule file example"></a>
-<figcaption>
-Figure 10 - Rule file example</figcaption>
-</figure>
+<table>
+    
+<tr>
+        
+<th>Type of Extractors</th>
+        <th>Details about extractor's attribute </th>
+        <th>Example of Rule File</th>
+    
+</tr>
+    
+<tr>
+        
+<td>CSS Selector Extractor Rule</td>
+        <td>
+           
+<li>attribute</li>
+           
+<li>expr</li>
+           
+<li>name </li>
+           
+<li>type</li>
+
+        
+</td>
+        <td>{
+	    "rule": [{
+		"name": "$name",
+		"expr": "$expr",
+		"attribute": "$attribute",
+		"type": "css_extractor"
+	   }]
+}</td>
+ 
+</tr>
+ 
+<tr>
+<td>
+<br> 
+</br>
+</td>
+</tr>
+
+		
+<tr>
+        
+<td>JsonPathExtractor Rule</td>
+        <td>
+           
+<li>expr</li>
+           
+<li>name </li>
+           
+<li>type</li>
+
+        
+</td>
+        <td>
+		{
+	    "rule": [{
+		"name": "$name",
+		"expr": "$expr",
+		"type": "jsonpath_extractor"
+	      }]
+        }
+        </td>
+    
+</tr>
+
+<tr>
+<td>
+<br> 
+</br>
+</td>
+</tr>
+	
+<tr>
+        
+<td>XPath Extractor Rule</td>
+        <td>
+
+           
+<li>expr</li>
+           
+<li>name </li>
+           
+<li>type</li>
+
+        
+</td>
+        <td>{{
+	    "rule": [{
+		"name": "$name",
+		"expr": "$expr",
+		"type": "xpath2_extractor"
+	       }]
+}</td>
+    
+</tr>
+
+<tr>
+<td>
+<br> 
+</br>
+</td>
+</tr>
+	
+<tr>
+        
+<td>RegexExtractor Rule</td>
+        <td>
+
+           
+<li>expr</li>
+           
+<li>name </li>
+           
+<li>type</li>
+
+        
+</td>
+        <td>{
+	   "rule": [{
+		"name": "$name",
+		"expr": "$expr",
+		"type": "regex_extractor"
+	            }]
+        }
+        <ul>
+<li>type attribute value can be "regex_extractor" or "regex_header" based on the applied extractor type</li>
+</ul>
+		
+</td>
+    
+</tr>
+	
+<tr>
+        
+<td>BoundaryExtractor Rule</td>
+        <td>
+
+           
+<li>name </li>
+           
+<li>type</li>
+		   
+<li>lBoundary</li>
+           
+<li>rBoundary</li>
+
+        
+</td>
+        <td>{
+	    "rule": [{
+		"name": "$name",
+		"lBoundary": "$lBoundary",
+	    "rBoundary": "$rBoundary",
+		"type": "boundary_extractor"
+	            }]
+         }</td>
+    
+</tr>
+
+</table>
 
 </div>
 
